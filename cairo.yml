@@ -7,11 +7,16 @@ GENERATOR:
   Includes: ["cairo.h"]
 
 PARSER: 
-  IncludePaths: ["/usr/include", "cairo/"]
-  SourcesPaths: ["cairo/cairo.h"]
+  IncludePaths:
+      - "/usr/include"
+      - "cairo/"
+  SourcesPaths: 
+      - "cairo/cairo.h"
+      - "cairo/platform_support.h"
+  IgnoredPaths:
+      - "cairo/cairo-deprecated.h"
   Defines:
-    # NOT_IMPLEMENTED_YET: 1
-
+    # CAIRO_HAS_QUARTZ_SURFACE: 1
 TRANSLATOR: 
   ConstRules: 
     defines: expand
@@ -19,7 +24,7 @@ TRANSLATOR:
       # - {target: "_get_feat$", self: raw}
   PtrTips:
     function:
-      # - {target: "_args$", self: arr}
+      - {target: ".", tips: [ref,ref,ref,ref,ref,ref,ref]}
   Rules: 
     global: 
       - {transform: lower}
@@ -27,6 +32,16 @@ TRANSLATOR:
       - {action: replace, from: "^cairo_t$", to: Cairo}
       - {action: replace, from: "^cairo_", to: _}
       - {transform: export}
+    const:
+      - {action: ignore, from: "cairo_get_font_extents$"}
+      - {action: ignore, from: "cairo_get_status"}
+    function:
+      - {action: replace, from: "^_text_extents$", to: "_get_text_extents"}
+      - {action: replace, from: "^_font_extents$", to: "_get_font_extents"}
+      - {action: replace, from: "^_rectangle$", to: "_make_rectangle"}
+      - {action: replace, from: "^_version$", to: "_get_version"}
+      - {action: ignore, from: "cairo_surface_get_mime_data$"}
+      - {action: replace, from: "^_status$", to: "_get_status"}
     type: 
       - {action: replace, from: "_t$"}
     private:
