@@ -24,3 +24,11 @@ test-cairo:
 
 test-pugl:
 	cd pugl && go build
+
+install: install-cairo install-pugl
+
+install-cairo:
+	cd cairo && go install
+
+install-pugl:
+	cd pugl && go install
