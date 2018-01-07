@@ -4,6 +4,6 @@
 // By https://git.io/c-for-go. DO NOT EDIT.
 
 /*
-Package cairo provides Go bindings for Cairo.
+Package pugl provides Go bindings for PUGL — a minimal portable API for OpenGL and Cairo interfaces.
 */
-package cairo
+package pugl

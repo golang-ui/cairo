@@ -3,7 +3,10 @@
 // WARNING: This file has automatically been generated on Sat, 06 Jan 2018 19:12:26 EST.
 // By https://git.io/c-for-go. DO NOT EDIT.
 
-/*
-Package cairo provides Go bindings for Cairo.
-*/
-package cairo
+#include "_cgo_export.h"
+#include "cgo_helpers.h"
+
+void PuglEventFunc_d2bbaefb(PuglView* view, PuglEvent* event) {
+	eventFuncD2BBAEFB(view, event);
+}
+
