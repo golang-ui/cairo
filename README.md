@@ -1,4 +1,6 @@
-## cairo-go [WIP]
+## cairo bindings
+
+Work In Progress.
 
 Full Cairo bindings with examples:
 * Quartz-backed rendering for OS X;

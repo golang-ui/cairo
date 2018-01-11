@@ -1,10 +1,9 @@
 // +build darwin
-// +build !external
+// +build external
 package cairo
 
 /*
-#cgo darwin LDFLAGS: -L./deps/darwin_amd64 -lcairo-1.15.11 -lfontconfig -lfreetype -lpixman-1 -lpng16 -lz -lbz2 -lexpat
-#cgo darwin LDFLAGS: -framework ApplicationServices -framework CoreFoundation -framework CoreGraphics
+#cgo darwin pkg-config: cairo
 #cgo darwin CFLAGS: -DCAIRO_HAS_QUARTZ_FONT
 #cgo darwin CFLAGS: -DCAIRO_HAS_QUARTZ_IMAGE_SURFACE
 #cgo darwin CFLAGS: -DCAIRO_HAS_QUARTZ_SURFACE
