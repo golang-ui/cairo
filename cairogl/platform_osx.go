@@ -1,4 +1,4 @@
-// +build none
+//+build none
 
 package cairogl
 

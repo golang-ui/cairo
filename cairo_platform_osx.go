@@ -1,5 +1,6 @@
-// +build darwin
-// +build !external
+//+build darwin
+//+build !external
+
 package cairo
 
 /*
